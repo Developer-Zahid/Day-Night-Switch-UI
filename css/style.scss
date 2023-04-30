@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+*,::after,::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #1d1e30;
+    transition: all linear .3s;
+    font-family: 'Bangers', cursive;
+}
+
+.input-group{
+    width: 115px;
+    height: 65px;
+    border-radius: 40px;
+    overflow: hidden;
+    input{
+        -webkit-appearance: none;
+        display: none;
+    }
+    label{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        background-image: url(../images/night.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border: 5px solid #576480;
+        border-radius: 44px;
+        cursor: pointer;
+        transition: all linear .6s;
+        &::after{
+            content: "";
+            position: absolute;
+            left: 3px;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: url(../images/Moon.png) no-repeat center;
+            background-size: cover;
+            border: 3px solid rgba(198, 197, 197,0.3);
+            transition: all ease-in-out .8s;
+        }
+        &::before{
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 5px;
+            width: 45px;
+            height: 28px;
+            background: url(../images/cloud.png) no-repeat;
+            background-position: initial;
+            background-size: cover;
+            z-index: 9;
+            transform: translate(0%,-40%);
+            filter: drop-shadow(0 0 1px #ccc)
+                    drop-shadow(0 0 2px rgba(198, 197, 197,0.5))
+                    drop-shadow(0 0 3px rgba(198, 197, 197,0.3));
+            opacity: 0;
+            visibility: hidden;
+            transition: all ease-in .8s;
+        }
+    }
+    .bg{
+        display: flex;
+        align-items: start;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: linear-gradient(90deg,#e8feff 50%,#1d1e30 50%);
+        // background: linear-gradient(#e8feff 50%,#1d1e30 50%);
+        background-size: 200vw;
+        // background-size: 100vw 200vh;
+        background-position: right;
+        // background-position: top;
+        z-index: -1;
+        transition: background-position ease-in-out .8s;
+        &::before{
+            content: "NIGHT";
+            position: absolute;
+            left: 5%;
+            font-size: 5rem;
+            color: transparent;
+            -webkit-text-stroke-width: 3px;
+            -webkit-text-stroke-color: rgba($color: #999, $alpha: 0.3);
+            transition: all ease-in-out 1s;
+            letter-spacing: 5px;
+        }
+    }
+    input:checked ~{
+        label{
+            background-image: url(../images/day.png);
+            background-position: left;
+            border-color: #89c1cd;
+            &::after{
+                left: calc(100% - 54px);
+                background: #f6e265 no-repeat center;
+                border-color: rgba(198, 197, 197,0.7);
+                border-width: 4px;
+            }
+            &::before{
+                transform: translate(-70%,-40%);
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+        .bg{
+            background-position: left;
+            // background-position: bottom;
+            &::before{
+                content: "DAY";
+                left: 85%;
+            }
+        }
+    }
+}

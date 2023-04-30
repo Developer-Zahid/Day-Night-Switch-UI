@@ -1,0 +1,159 @@
+@import url("https://fonts.googleapis.com/css2?family=Bangers&display=swap");
+*, ::after, ::before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 100vh;
+  background: #1d1e30;
+  -webkit-transition: all linear .3s;
+  transition: all linear .3s;
+  font-family: 'Bangers', cursive;
+}
+
+.input-group {
+  width: 115px;
+  height: 65px;
+  border-radius: 40px;
+  overflow: hidden;
+}
+
+.input-group input {
+  -webkit-appearance: none;
+  display: none;
+}
+
+.input-group label {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/night.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 5px solid #576480;
+  border-radius: 44px;
+  cursor: pointer;
+  -webkit-transition: all linear .6s;
+  transition: all linear .6s;
+}
+
+.input-group label::after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: url(../images/Moon.png) no-repeat center;
+  background-size: cover;
+  border: 3px solid rgba(198, 197, 197, 0.3);
+  -webkit-transition: all ease-in-out .8s;
+  transition: all ease-in-out .8s;
+}
+
+.input-group label::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 5px;
+  width: 45px;
+  height: 28px;
+  background: url(../images/cloud.png) no-repeat;
+  background-position: initial;
+  background-size: cover;
+  z-index: 9;
+  -webkit-transform: translate(0%, -40%);
+          transform: translate(0%, -40%);
+  -webkit-filter: drop-shadow(0 0 1px #ccc) drop-shadow(0 0 2px rgba(198, 197, 197, 0.5)) drop-shadow(0 0 3px rgba(198, 197, 197, 0.3));
+          filter: drop-shadow(0 0 1px #ccc) drop-shadow(0 0 2px rgba(198, 197, 197, 0.5)) drop-shadow(0 0 3px rgba(198, 197, 197, 0.3));
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all ease-in .8s;
+  transition: all ease-in .8s;
+}
+
+.input-group .bg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: -webkit-gradient(linear, left top, right top, color-stop(50%, #e8feff), color-stop(50%, #1d1e30));
+  background: linear-gradient(90deg, #e8feff 50%, #1d1e30 50%);
+  background-size: 200vw;
+  background-position: right;
+  z-index: -1;
+  -webkit-transition: background-position ease-in-out .8s;
+  transition: background-position ease-in-out .8s;
+}
+
+.input-group .bg::before {
+  content: "NIGHT";
+  position: absolute;
+  left: 5%;
+  font-size: 5rem;
+  color: transparent;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: rgba(153, 153, 153, 0.3);
+  -webkit-transition: all ease-in-out 1s;
+  transition: all ease-in-out 1s;
+  letter-spacing: 5px;
+}
+
+.input-group input:checked ~ label {
+  background-image: url(../images/day.png);
+  background-position: left;
+  border-color: #89c1cd;
+}
+
+.input-group input:checked ~ label::after {
+  left: calc(100% - 54px);
+  background: #f6e265 no-repeat center;
+  border-color: rgba(198, 197, 197, 0.7);
+  border-width: 4px;
+}
+
+.input-group input:checked ~ label::before {
+  -webkit-transform: translate(-70%, -40%);
+          transform: translate(-70%, -40%);
+  opacity: 1;
+  visibility: visible;
+}
+
+.input-group input:checked ~ .bg {
+  background-position: left;
+}
+
+.input-group input:checked ~ .bg::before {
+  content: "DAY";
+  left: 85%;
+}
+/*# sourceMappingURL=style.css.map */
